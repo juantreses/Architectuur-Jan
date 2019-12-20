@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Examen : Jan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/opmaak.css">
+</head>
+
+<body>
+
+    <header class="mainheader parallax-header" data-parallax="scroll">
+        <div class="navbalk">
+            <h1>Architect</h1>
+            <a href="#menu" title="" class="menu">
+                <span class="fa fa-bars" onclick="openNav()"></span>
+                <span class="sr-only">Menu</span>
+            </a>
+
+        </div> <!-- navbalk -->
+
+        <div id="myNav" class="overlay">
+
+
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" title="">&times;</a>
+
+
+            <nav class="overlay-content mainnav">
+                <ul>
+                    <li>
+                        <a href="#" title="">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">Projecten</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">Over Ons</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div> <!-- overlay -->
+
+
+
+        <article>
+            <h2>Architectuur is een visuele kunst, en onze gebouwen spreken voor zich.</h2>
+            <a href="#" title=""><button>Meer info</button></a>
+        </article>
+    </header>
+
+    <section class="section-one">
+        <figure>
+            <img src="images/atomium.jpg" alt="">
+            <figcaption>Atomium Brussel</figcaption>
+        </figure>
+        <figure>
+            <img src="images/toureiffel.jpg" alt="">
+            <figcaption>Eiffeltoren Parijs</figcaption>
+        </figure>
+        <figure>
+            <img src="images/guggenheim.jpg" alt="">
+            <figcaption>Guggenheim New York</figcaption>
+        </figure>
+    </section>
+
+    <footer>
+        <section>
+            <article>
+                <h2>Over ons</h2>
+                <p>All right, kid. But you'd better be right about this. All right. What's your plan? Uh...Threepio, hand me those binders there will you? Okay. Now, I'm going to put these on you. </p>
+            </article>
+            <article>
+                <h2>Onze diensten</h2>
+                <p>Okay. Han, you put these on. Don't worry, Chewie. I think I know what he has in mind. Master Luke, sir! Pardon me for asking. I'm going to put these on you.</p>
+            </article>
+            <article>
+                <h2>Ons adres</h2>
+                <address>
+                    <span class="fa fa-map-marker"></span>
+                    Havenlaan 86C, 1000 Brussel<br>
+                    <span class="fa fa-phone"></span>
+                    <a href="tel:+322461222" title="">+322461222</a><br>
+                    <span class="fa fa-envelope"></span>
+                    <a href="mailto:info@architectuur.design" title="">info@architectuur.design</a><br>
+                    <span class="fa fa-globe"></span>
+                    <a href="http://www.architectuur.design" title="">www.architectuur.design</a><br>
+                </address>
+            </article>
+            <article>
+                <h2>Contacteer ons</h2>
+                <form action="">
+                    <ul>
+                        <li>
+                            <label for="naam">Naam</label>
+                            <input type="text" id="naam" name="naam" required tabindex="1" placeholder="Naam">
+                        </li>
+                        <li>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required tabindex="2" placeholder="E-mail">
+                        </li>
+                        <li>
+                            <label for="vragen">Vragen?</label>
+                            <textarea id="vragen" name="vragen" required tabindex="3" placeholder="Vragen..."></textarea>
+                        </li>
+                        <li>
+                            <input type="submit" value="Verzend bericht" tabindex="4">
+                        </li>
+                    </ul>
+                </form>
+            </article>
+        </section>
+        <div class="socials">
+            <a href="#" title="">
+                <span class="fab fa-twitter"></span>
+                <span class="sr-only">Twitter pagina</span>
+            </a>
+            <a href="#" title="">
+                <span class="fab fa-facebook"></span>
+                <span class="sr-only">Facebook pagina</span>
+            </a>
+            <a href="#" title="">
+                <span class="fab fa-instagram"></span>
+                <span class="sr-only">Instagram pagina</span>
+            </a>
+            <a href="#" title="">
+                <span class="fab fa-google-plus-g"></span>
+                <span class="sr-only">Google plus pagina</span>
+            </a>
+            <a href="#" title="">
+                <span class="fab fa-youtube"></span>
+                <span class="sr-only">Youtube plus pagina</span>
+            </a>
+        </div> <!-- socials -->
+        <p class="copyright">&copy; 2019 Architectuur - Jan. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <a href="javascript:void(0);" id="goToTop">
+        <span class="fa fa-arrow-circle-up"></span>
+    </a>
+
+    <!-- jQuery lib -->
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Eigen scripts -->
+    <script src="js/main.js"></script>
+    <!-- Parallax -->
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+    <script>
+        function myFunction(x) {
+            if (x.matches) {
+                $('.parallax-header').parallax({
+                    imageSrc: 'images/header-bg-tablet.jpg'
+                });
+            } else {
+                $('.parallax-header').parallax({
+                    imageSrc: 'images/header-bg.jpg'
+                });
+            }
+        }
+
+        var x = window.matchMedia("(max-width: 1140px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction)
+
+    </script>
+
+
+</body>
+
+</html>
