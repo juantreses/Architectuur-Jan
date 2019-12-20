@@ -1,0 +1,448 @@
+@charset "UTF-8";
+/* Opmaak bij Examen architectuur  */
+/* reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import "https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700&display=swap";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, nav ul, form ul,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+nav ul, form ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* eigen css regels --------------------------- */
+* {
+  box-sizing: border-box; }
+
+p {
+  margin-bottom: 1em; }
+
+.list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+img {
+  display: block; }
+
+/*witruimte rond afbeeldingen even groot langs boven en onder */
+.floatfix {
+  clear: both;
+  overflow: hidden;
+  zoom: 1;
+  _overflow: visible; }
+
+.passendeimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+/* Variables bij oefening Fotografie */
+/* Mixins bij Examen architectuur */
+body {
+  color: black;
+  font-weight: 300;
+  font-size: 100%;
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-style: normal;
+  line-height: 1.6;
+  text-align: left;
+  letter-spacing: 0;
+  background: #CCD; }
+
+a {
+  text-decoration: none;
+  color: red; }
+  a:hover {
+    text-decoration: underline; }
+
+header.mainheader {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative; }
+  header.mainheader article {
+    background: #E71;
+    width: 400px;
+    height: 200px;
+    color: white;
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", Arial, sans-serif;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: left;
+    letter-spacing: 0;
+    color: white;
+    margin-bottom: 20px;
+    padding: 1em; }
+  header.mainheader button {
+    background: #E71;
+    border: white solid 1px;
+    color: white;
+    font-weight: 400;
+    font-size: 0.9rem;
+    font-family: Roboto;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: left;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    margin-top: .5em;
+    padding: .4em;
+    text-align: center;
+    display: inline-block;
+    transition: all 500ms; }
+    header.mainheader button:hover {
+      font-weight: 700;
+      cursor: pointer;
+      border: #E71;
+      background: white;
+      color: #E71; }
+
+@media screen and (min-width: 1140px) {
+  header.mainheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end; }
+    header.mainheader article {
+      margin-left: 300px; } }
+header.mainheader .navbalk {
+  background: white;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateY(30px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em; }
+  header.mainheader .navbalk h1 {
+    color: black;
+    font-weight: 700;
+    font-size: 1.4rem;
+    font-family: "Roboto Slab", Arial, sans-serif;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: left;
+    letter-spacing: 0;
+    text-transform: uppercase; }
+    header.mainheader .navbalk h1::before {
+      font-family: "Font Awesome 5 Free";
+      content: "";
+      color: #E71;
+      display: inline-block;
+      padding-right: 10px; }
+  header.mainheader .navbalk a.menu {
+    display: block;
+    width: 60px;
+    height: 60px;
+    color: black;
+    transition: all 500ms ease;
+    text-align: center;
+    line-height: 60px;
+    color: black;
+    font-weight: 400;
+    font-size: 1.4rem;
+    font-family: "Roboto Slab", Arial, sans-serif;
+    font-style: normal;
+    line-height: 60px;
+    text-align: center;
+    letter-spacing: 0; }
+    header.mainheader .navbalk a.menu:hover {
+      background: #E71; }
+
+.overlay {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  .overlay a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: "Roboto Slab", Arial, sans-serif;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: center;
+    letter-spacing: 0;
+    display: block;
+    transition: 500ms ease-out; }
+    .overlay a:hover {
+      color: #E71; }
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px; }
+
+@media screen and (min-width: 750px) {
+  header.mainheader .navbalk a.menu {
+    display: none; } }
+figure {
+  position: relative;
+  overflow: hidden; }
+  figure img {
+    width: 100%; }
+  figure figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family: "Roboto Slab", Arial, sans-serif;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: left;
+    letter-spacing: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+
+@media screen and (min-width: 1140px) {
+  section.section-one {
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr; }
+
+  figure figcaption {
+    top: 100%;
+    transition: all 500ms ease-out; }
+  figure:hover figcaption {
+    top: 0; } }
+footer {
+  background-color: #123;
+  background-image: "";
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+  footer section {
+    border-bottom: #888 1px solid;
+    max-width: 1200px;
+    max-width: 1200px; }
+  footer h2 {
+    text-transform: capitalize;
+    color: #CCD;
+    font-weight: 400;
+    font-size: 1.2rem;
+    font-family: "Roboto Slab", Arial, sans-serif;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: left;
+    letter-spacing: 0;
+    padding: 1.5em 1em; }
+    footer h2:first-of-type {
+      padding-top: 2.3em; }
+  footer p {
+    margin: 0 1.3em;
+    color: #888;
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: Roboto;
+    font-style: normal;
+    line-height: 1.6;
+    text-align: left;
+    letter-spacing: 0; }
+  footer address {
+    margin: 0 2em;
+    color: #888; }
+    footer address span {
+      transform: translate(-0.7em); }
+    footer address a {
+      color: #888; }
+  footer form {
+    margin: 0 1.3em; }
+    footer form label {
+      display: none; }
+    footer form input,
+    footer form textarea {
+      width: 100%;
+      border: none;
+      margin-bottom: 10px;
+      height: 45px;
+      background: #1B2027;
+      padding: 0 1.3em; }
+      footer form input.placeholder,
+      footer form textarea.placeholder {
+        color: #888;
+        font-weight: 400;
+        font-size: 1rem;
+        font-family: Roboto;
+        font-style: normal;
+        line-height: 1.6;
+        text-align: left;
+        letter-spacing: 0; }
+      footer form input:-moz-placeholder,
+      footer form textarea:-moz-placeholder {
+        color: #888;
+        font-weight: 400;
+        font-size: 1rem;
+        font-family: Roboto;
+        font-style: normal;
+        line-height: 1.6;
+        text-align: left;
+        letter-spacing: 0; }
+      footer form input::-moz-placeholder,
+      footer form textarea::-moz-placeholder {
+        color: #888;
+        font-weight: 400;
+        font-size: 1rem;
+        font-family: Roboto;
+        font-style: normal;
+        line-height: 1.6;
+        text-align: left;
+        letter-spacing: 0; }
+      footer form input:-ms-input-placeholder,
+      footer form textarea:-ms-input-placeholder {
+        color: #888;
+        font-weight: 400;
+        font-size: 1rem;
+        font-family: Roboto;
+        font-style: normal;
+        line-height: 1.6;
+        text-align: left;
+        letter-spacing: 0; }
+      footer form input::-webkit-input-placeholder,
+      footer form textarea::-webkit-input-placeholder {
+        color: #888;
+        font-weight: 400;
+        font-size: 1rem;
+        font-family: Roboto;
+        font-style: normal;
+        line-height: 1.6;
+        text-align: left;
+        letter-spacing: 0; }
+    footer form textarea {
+      height: 140px;
+      padding: 1em 1.3em; }
+    footer form input[type="submit"] {
+      background-color: #E71;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: 400;
+      font-size: 1rem;
+      font-family: Roboto;
+      font-style: normal;
+      line-height: 1.6;
+      text-align: left;
+      letter-spacing: 0;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: 190px;
+      transition: 300ms;
+      margin: 1em 0 2.4em; }
+      footer form input[type="submit"]:hover {
+        font-weight: 700;
+        cursor: pointer;
+        border: #E71;
+        background: white;
+        color: #E71; }
+  footer .socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 2em 6em; }
+    footer .socials a {
+      color: #888;
+      font-weight: 400;
+      font-size: 1.3rem;
+      font-family: "Roboto Slab", Arial, sans-serif;
+      font-style: normal;
+      line-height: 1.6;
+      text-align: left;
+      letter-spacing: 0;
+      transition: all 500ms ease; }
+      footer .socials a:hover {
+        color: #E71;
+        font-weight: 700;
+        font-size: 1.3rem;
+        font-family: "Roboto Slab", Arial, sans-serif;
+        font-style: normal;
+        line-height: 1.6;
+        text-align: left;
+        letter-spacing: 0; }
+  footer p.copyright {
+    text-align: center;
+    padding-bottom: 2em; }
+
+@media screen and (min-width: 750px) {
+  footer section {
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr 1fr;
+    margin: 0 auto; } }
+#goToTop {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background: #1B2027;
+  color: #CCD;
+  font-size: 3rem;
+  padding: 0 .5em;
+  border-radius: 5px; }
+  #goToTop:hover {
+    color: #E71; }
+
+/*# sourceMappingURL=opmaak.css.map */
