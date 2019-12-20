@@ -1,0 +1,328 @@
+/* Opmaak bij Examen architectuur  */
+
+@import "partials/reset", "partials/variables", "partials/mixins", "https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700&display=swap", 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css';
+
+
+// Algemene stijlen ------------------------------------------------------------------
+
+body {
+    @include font;
+    background: $licht;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+// Header stijlen --------------------------------------------------------------------
+
+header.mainheader {
+    //background: url(../images/header-bg-tablet.jpg) center/cover no-repeat;
+    height: 100vh;
+    @include flex(row, center, flex-end);
+    position: relative; //voor navbalk
+
+    article {
+        background: $accent;
+        width: 400px;
+        height: 200px;
+        @include font($wit, 400, 1.5rem);
+        color: $wit;
+        margin-bottom: 20px;
+        padding: 1em;
+    }
+
+    button {
+        background: $accent;
+        border: $wit solid 1px;
+        @include font($wit, 400, .9rem, Roboto);
+        text-transform: uppercase;
+        margin-top: .5em;
+        padding: .4em;
+        text-align: center;
+        display: inline-block;
+        transition: all 500ms;
+
+        &:hover {
+            font-weight: 700;
+            cursor: pointer;
+            border: $accent;
+            background: $wit;
+            color: $accent;
+        }
+    }
+}
+
+
+@media screen and (min-width: $breed-scherm) {
+    header.mainheader {
+        //background: url(../images/header-bg.jpg) no-repeat center/cover;
+        @include flex(row, flex-start, flex-end);
+
+        article {
+            margin-left: 300px;
+        }
+    }
+}
+
+// Navigatie ---------------------------------------------------------------
+
+header.mainheader .navbalk {
+    background: $wit;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translateY(30px);
+    @include flex(row, space-between, center);
+    padding: 1em 2em;
+
+    h1 {
+        @include font($zwart, 700, 1.4rem);
+        text-transform: uppercase;
+
+        &::before {
+            @include pseudo('\F66F', $accent)
+        }
+    }
+
+    a.menu {
+        display: block;
+        width: 60px;
+        height: 60px;
+        color: $zwart;
+        transition: all 500ms ease;
+        text-align: center;
+        line-height: 60px;
+        @include font($zwart, 400, 1.4rem, $hoofdfont, normal, 60px, center);
+
+        &:hover {
+            background: $accent;
+        }
+    }
+
+    
+
+}
+
+.overlay {
+        height: 100vh;
+        width: 0;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s ease-out;
+        @include flex(column, center, center);
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            @include font($wit, 700, 1.5rem, $hoofdfont, normal, 1.6, center);
+            display: block;
+            transition: 500ms ease-out;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+    }
+
+@media screen and (min-width: $medium-scherm) {
+    header.mainheader .navbalk a.menu {
+        display: none;
+    }
+}
+
+
+
+
+// Section One ----------------------------------------------------------------------
+
+figure {
+    position: relative;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+
+    figcaption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include font($wit, 700, 1.2rem);
+        @include flex(row, center, center);
+    }
+}
+
+@media screen and (min-width: $breed-scherm) {
+    section.section-one {
+        display: grid;
+        grid-template: auto / 1fr 1fr 1fr;
+    }
+
+    figure {
+        figcaption {
+            top: 100%;
+            transition: all 500ms ease-out;
+        }
+
+        &:hover figcaption {
+            top: 0;
+        }
+    }
+
+}
+
+// Footer ------------------------------------------------------------------------
+
+footer {
+    @include background($donker);
+
+    section {
+        border-bottom: $medium 1px solid;
+        max-width: 1200px;
+        max-width: 1200px;
+    }
+
+    h2 {
+        text-transform: capitalize;
+        @include font($licht, 400, 1.2rem, $hoofdfont);
+        padding: 1.5em 1em;
+
+        &:first-of-type {
+            padding-top: 2.3em;
+        }
+    }
+
+    p {
+        margin: 0 1.3em;
+        @include font($medium, 400, 1rem, Roboto);
+    }
+
+    address {
+        margin: 0 2em;
+        color: $medium;
+
+        span {
+            transform: translate(-.7em);
+        }
+
+        a {
+            color: $medium;
+        }
+    }
+
+    form {
+        margin: 0 1.3em;
+
+        label {
+            display: none;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: none;
+            margin-bottom: 10px;
+            height: 45px;
+            background: $donkerder;
+            padding: 0 1.3em;
+
+            @include input-placeholder {
+                @include font($medium, 400, 1rem, Roboto);
+            }
+        }
+
+        textarea {
+            height: 140px;
+            padding: 1em 1.3em;
+        }
+
+        input[type="submit"] {
+            background-color: $accent;
+            border-radius: 5px;
+            cursor: pointer;
+            @include font($wit, 400, 1rem, Roboto);
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            width: 190px;
+            transition: 300ms;
+            margin: 1em 0 2.4em;
+
+            &:hover {
+                font-weight: 700;
+                cursor: pointer;
+                border: $accent;
+                background: $wit;
+                color: $accent;
+            }
+        }
+    }
+
+    .socials {
+        @include flex(row, space-around);
+        margin: 2em 6em;
+
+        a {
+            @include font($medium, 400, 1.3rem);
+            transition: all 500ms ease;
+
+            &:hover {
+                @include font($accent, 700, 1.3rem);
+            }
+        }
+    }
+
+    p.copyright {
+        text-align: center;
+        padding-bottom: 2em;
+    }
+}
+
+@media screen and (min-width: $medium-scherm) {
+    footer section {
+        display: grid;
+        grid-template: auto / 1fr 1fr 1fr 1fr;
+        margin: 0 auto;
+    }
+}
+
+
+// Scroll to Top button
+#goToTop {
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: $donkerder;
+    color: $licht;
+    font-size: 3rem;
+    padding: 0 .5em;
+    border-radius: 5px;
+
+    &:hover {
+        color: $accent;
+    }
+}
