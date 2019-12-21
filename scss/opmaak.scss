@@ -14,9 +14,7 @@ a {
     text-decoration: none;
     color: red;
 
-    &:hover {
-        text-decoration: underline;
-    }
+    &:hover { text-decoration: underline; }
 }
 
 
@@ -25,8 +23,7 @@ a {
 header.mainheader {
     //background: url(../images/header-bg-tablet.jpg) center/cover no-repeat;
     height: 100vh;
-    @include flex(row, center, flex-end);
-    position: relative; //voor navbalk
+    @include flex(column, space-between, center);
 
     article {
         background: $accent;
@@ -63,11 +60,9 @@ header.mainheader {
 @media screen and (min-width: $breed-scherm) {
     header.mainheader {
         //background: url(../images/header-bg.jpg) no-repeat center/cover;
-        @include flex(row, flex-start, flex-end);
+        @include flex(column, space-between, unset);
 
-        article {
-            margin-left: 300px;
-        }
+        article { margin-left: 300px; }
     }
 }
 
@@ -75,10 +70,9 @@ header.mainheader {
 
 header.mainheader .navbalk {
     background: $wit;
-    position: absolute;
     width: 100%;
-    top: 0;
-    transform: translateY(30px);
+    max-height: 60px;
+    margin-top: 30px;
     @include flex(row, space-between, center);
     padding: 1em 2em;
 
@@ -86,9 +80,7 @@ header.mainheader .navbalk {
         @include font($zwart, 700, 1.4rem);
         text-transform: uppercase;
 
-        &::before {
-            @include pseudo('\F66F', $accent)
-        }
+        &::before { @include pseudo('\F66F', $accent, 10px, inline); }
     }
 
     a.menu {
@@ -101,56 +93,75 @@ header.mainheader .navbalk {
         line-height: 60px;
         @include font($zwart, 400, 1.4rem, $hoofdfont, normal, 60px, center);
 
-        &:hover {
-            background: $accent;
-        }
+        &:hover { background: $accent; }
     }
-
-    
-
 }
 
 .overlay {
-        height: 100vh;
-        width: 0;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        overflow-x: hidden;
-        transition: 0.5s ease-out;
-        @include flex(column, center, center);
-        text-align: center;
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s ease-out;
+    @include flex(column, center, center);
+    text-align: center;
 
-        a {
-            text-decoration: none;
-            text-transform: uppercase;
-            @include font($wit, 700, 1.5rem, $hoofdfont, normal, 1.6, center);
-            display: block;
-            transition: 500ms ease-out;
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        @include font($wit, 700, 1.5rem, $hoofdfont, normal, 1.6, center);
+        display: block;
+        transition: 500ms ease-out;
 
-            &:hover {
-                color: $accent;
-            }
-        }
-
-        .closebtn {
-            position: absolute;
-            top: 20px;
-            right: 45px;
-            font-size: 60px;
-        }
-
+        &:hover { color: $accent; }
     }
 
-@media screen and (min-width: $medium-scherm) {
-    header.mainheader .navbalk a.menu {
-        display: none;
+    .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
     }
 }
 
+@media screen and (min-width: $medium-scherm) {
+    header.mainheader {
+        .navbalk a.menu {
+            display: none;
+        }
 
+        nav.overlay {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: $wit;
+            overflow: hidden;
+
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+
+                a {
+                    display: block;
+                    padding: 14px 20px;
+                    @include font($zwart, 400, 100%);
+
+                    &:hover,
+                    &.actiefitem { color: $accent; }
+                }
+            }
+
+            .closebtn {
+                display: none;
+            }
+        }
+    }
+}
 
 
 // Section One ----------------------------------------------------------------------
@@ -159,9 +170,7 @@ figure {
     position: relative;
     overflow: hidden;
 
-    img {
-        width: 100%;
-    }
+    img { width: 100%; }
 
     figcaption {
         position: absolute;
@@ -186,11 +195,8 @@ figure {
             transition: all 500ms ease-out;
         }
 
-        &:hover figcaption {
-            top: 0;
-        }
+        &:hover figcaption { top: 0; }
     }
-
 }
 
 // Footer ------------------------------------------------------------------------
@@ -220,24 +226,19 @@ footer {
     }
 
     address {
-        margin: 0 2em;
+        margin: 0 1.3em;
         color: $medium;
+        @include font($medium, 400, 1rem, Roboto);
 
-        span {
-            transform: translate(-.7em);
-        }
+        span { padding-right: 15px; }
 
-        a {
-            color: $medium;
-        }
+        a { color: $medium; }
     }
 
     form {
         margin: 0 1.3em;
 
-        label {
-            display: none;
-        }
+        label { display: none; }
 
         input,
         textarea {
@@ -248,9 +249,7 @@ footer {
             background: $donkerder;
             padding: 0 1.3em;
 
-            @include input-placeholder {
-                @include font($medium, 400, 1rem, Roboto);
-            }
+            @include input-placeholder { @include font($medium, 400, 1rem, Roboto); }
         }
 
         textarea {
@@ -288,9 +287,7 @@ footer {
             @include font($medium, 400, 1.3rem);
             transition: all 500ms ease;
 
-            &:hover {
-                @include font($accent, 700, 1.3rem);
-            }
+            &:hover { @include font($accent, 700, 1.3rem); }
         }
     }
 
@@ -303,9 +300,13 @@ footer {
 @media screen and (min-width: $medium-scherm) {
     footer section {
         display: grid;
-        grid-template: auto / 1fr 1fr 1fr 1fr;
+        grid-template: auto auto / 1fr 1fr;
         margin: 0 auto;
     }
+}
+
+@media screen and (min-width: $breed-scherm) { 
+    footer section { grid-template: auto / 1fr 1fr 1fr 1fr; } 
 }
 
 
@@ -322,7 +323,5 @@ footer {
     padding: 0 .5em;
     border-radius: 5px;
 
-    &:hover {
-        color: $accent;
-    }
+    &:hover { color: $accent; }
 }
