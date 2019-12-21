@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Examen : Jan</title>
+    <title>Architectuur : Jan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/opmaak.css">
 </head>
@@ -19,18 +19,11 @@
                 <span class="sr-only">Menu</span>
             </a>
 
-        </div> <!-- navbalk -->
-
-        <div id="myNav" class="overlay">
-
-
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" title="">&times;</a>
-
-
-            <nav class="overlay-content mainnav">
+            <nav class="mainnav overlay" id="myNav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" title="">&times;</a>
                 <ul>
                     <li>
-                        <a href="#" title="">Home</a>
+                        <a href="#" title="" class="actiefitem">Home</a>
                     </li>
                     <li>
                         <a href="#" title="">Projecten</a>
@@ -44,9 +37,7 @@
                 </ul>
             </nav>
 
-        </div> <!-- overlay -->
-
-
+        </div> <!-- navbalk -->
 
         <article>
             <h2>Architectuur is een visuele kunst, en onze gebouwen spreken voor zich.</h2>
@@ -82,14 +73,12 @@
             <article>
                 <h2>Ons adres</h2>
                 <address>
-                    <span class="fa fa-map-marker"></span>
-                    Havenlaan 86C, 1000 Brussel<br>
-                    <span class="fa fa-phone"></span>
-                    <a href="tel:+322461222" title="">+322461222</a><br>
-                    <span class="fa fa-envelope"></span>
-                    <a href="mailto:info@architectuur.design" title="">info@architectuur.design</a><br>
-                    <span class="fa fa-globe"></span>
-                    <a href="http://www.architectuur.design" title="">www.architectuur.design</a><br>
+                    <ul class="list-unstyled">
+                        <span class="fa fa-map-marker"></span>Havenlaan 86C, 1000 Brussel<br>
+                        <span class="fa fa-phone-alt"></span><a href="tel:+322461222" title="">+322461222</a><br>
+                        <span class="fa fa-envelope"></span><a href="mailto:info@architectuur.design" title="">info@architectuur.design</a><br>
+                        <span class="fa fa-globe"></span><a href="http://www.architectuur.design" title="">www.architectuur.design</a><br>
+                    </ul>
                 </address>
             </article>
             <article>
@@ -166,10 +155,7 @@
         var x = window.matchMedia("(max-width: 1140px)")
         myFunction(x) // Call listener function at run time
         x.addListener(myFunction)
-
     </script>
 
 
-</body>
-
-</html>
+</body></html>
