@@ -2,12 +2,18 @@
 
 
 function openNav() {
-  document.getElementById("myNav").style.width = "100%";
+    document.getElementById("myNav").style.transition = "0.5s";
+  document.getElementById("myNav").style.opacity = "1";
+    document.getElementById("myNav").style.visibility = "visible";
 }
 
 
 function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
+  document.getElementById("myNav").style.visibility = "hidden";
+    document.getElementById("myNav").style.opacity = "0";
+    setTimeout(function() {
+        document.getElementById("myNav").style.transition = "0s";
+    }, 500);
 }
 
 //Scroll To Top
